@@ -1,0 +1,50 @@
+﻿@model BloodTransfusionStationApp.Models.Отделы_хранилищ
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Отделы_хранилищ</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Тип_крови)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Тип_крови)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Объем)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Объем)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Хранилища_крови.Группа_крови)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

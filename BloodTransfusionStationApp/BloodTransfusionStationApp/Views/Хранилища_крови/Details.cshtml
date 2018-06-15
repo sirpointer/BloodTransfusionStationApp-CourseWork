@@ -1,0 +1,42 @@
+﻿@model BloodTransfusionStationApp.Models.Хранилища_крови
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Хранилища_крови</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Группа_крови)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Группа_крови)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Расположение__номер_кабинета_)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Расположение__номер_кабинета_)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Номер_хранилища }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

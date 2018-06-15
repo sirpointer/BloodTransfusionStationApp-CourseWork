@@ -1,0 +1,83 @@
+﻿@model IEnumerable<BloodTransfusionStationApp.Models.Информация_о_доноре>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Количество_сдач_цельной_крови_за_последний_год)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Последняя_дата_сдачи_имунной_плазмы)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Последий_тромбоцитаферез)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Последний_плазмаферез)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Последний_эритроцитаферез)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Пройдено_медицинское_обследование)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Окончание_действия_мед__обследования)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Доноры.Имя)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Количество_сдач_цельной_крови_за_последний_год)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Последняя_дата_сдачи_имунной_плазмы)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Последий_тромбоцитаферез)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Последний_плазмаферез)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Последний_эритроцитаферез)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Пройдено_медицинское_обследование)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Окончание_действия_мед__обследования)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Доноры.Имя)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Номер_донора }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Номер_донора }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Номер_донора })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

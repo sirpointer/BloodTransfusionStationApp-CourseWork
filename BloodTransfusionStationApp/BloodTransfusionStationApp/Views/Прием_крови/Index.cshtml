@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BloodTransfusionStationApp.Models.Прием_крови>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Дата_приема)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Вознаграждение)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Вид_донорства)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Объем)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Врачи.Имя)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Доноры.Имя)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Дата_приема)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Вознаграждение)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Вид_донорства)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Объем)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Врачи.Имя)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Доноры.Имя)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Номер_посещения }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Номер_посещения }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Номер_посещения })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

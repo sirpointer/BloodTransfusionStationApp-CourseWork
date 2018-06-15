@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="292845c64122462c8cfe62cb1c55bf71" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.sysdiagrams" Width="1.5" PointX="12.375" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Врачи" Width="1.5" PointX="9.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Доноры" Width="1.5" PointX="3.375" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Информация_о_доноре" Width="1.5" PointX="0.875" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Медицинское_оборудование" Width="1.5" PointX="9.625" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Отделы_хранилищ" Width="1.5" PointX="7.625" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Поставки_в_больницы" Width="1.5" PointX="2.125" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Прием_крови" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodTransfusionStationDBModel.Хранилища_крови" Width="1.5" PointX="5.375" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Медицинское_оборудование_Врачи" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Прием_крови_Врачи" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Информация_о_доноре_Доноры" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Прием_крови_Доноры" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Отделы_Хранилища" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Поставки_в_больницы_Хранилища_крови" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.FK_Прием_крови_Хранилища_крови" ManuallyRouted="false" />
+        <AssociationConnector Association="BloodTransfusionStationDBModel.Прием_Оборудование" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

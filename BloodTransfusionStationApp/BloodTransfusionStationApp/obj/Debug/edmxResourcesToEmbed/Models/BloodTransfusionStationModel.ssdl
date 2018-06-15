@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище BloodTransfusionStationDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Врачи">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Фамилия" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
+    <Property Name="Должность" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ставка" Type="money" Nullable="false" />
+    <Property Name="Стаж" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Доноры">
+    <Key>
+      <PropertyRef Name="Номер донора" />
+    </Key>
+    <Property Name="Номер донора" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Имя" Type="nvarchar" MaxLength="50" />
+    <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
+    <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
+    <Property Name="Дата рождения" Type="date" />
+    <Property Name="Пол" Type="bit" />
+    <Property Name="Группа крови" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Телефон" Type="nchar" MaxLength="10" />
+    <Property Name="Адрес" Type="nvarchar" MaxLength="50" />
+    <Property Name="Паспортные данные" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Информация о доноре">
+    <Key>
+      <PropertyRef Name="Номер донора" />
+    </Key>
+    <Property Name="Номер донора" Type="int" Nullable="false" />
+    <Property Name="Количество сдач цельной крови за последний год" Type="int" />
+    <Property Name="Последняя дата сдачи имунной плазмы" Type="date" />
+    <Property Name="Последий тромбоцитаферез" Type="date" />
+    <Property Name="Последний плазмаферез" Type="date" />
+    <Property Name="Последний эритроцитаферез" Type="date" />
+    <Property Name="Пройдено медицинское обследование" Type="bit" Nullable="false" />
+    <Property Name="Окончание действия мед. обследования" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Медицинское оборудование">
+    <Key>
+      <PropertyRef Name="Номер оборудования" />
+    </Key>
+    <Property Name="Номер оборудования" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Наименование" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Дата начала эксплуатации" Type="date" />
+    <Property Name="Срок окончания эксплуатации" Type="date" />
+    <Property Name="Расположение (номер кабинета)" Type="int" />
+    <Property Name="Номер ответственного сотрудника" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Отделы хранилищ">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Хранилище" Type="int" Nullable="false" />
+    <Property Name="Тип крови" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Объем" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Поставки в больницы">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Название" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Адрес" Type="nvarchar(max)" />
+    <Property Name="Объем поставки цельной крови" Type="int" Nullable="false" />
+    <Property Name="Объем поставки плазмы крови" Type="int" Nullable="false" />
+    <Property Name="Объем поставки имунной плазмы" Type="int" Nullable="false" />
+    <Property Name="Объем поставки эретроцитов крови" Type="int" Nullable="false" />
+    <Property Name="Объем поставки тромбоцитного концентрата" Type="int" Nullable="false" />
+    <Property Name="Хранилище" Type="int" Nullable="false" />
+    <Property Name="Дата поставки" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Прием крови">
+    <Key>
+      <PropertyRef Name="Номер посещения" />
+    </Key>
+    <Property Name="Номер посещения" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Дата приема" Type="date" Nullable="false" />
+    <Property Name="Вознаграждение" Type="nvarchar" MaxLength="50" />
+    <Property Name="Вид донорства" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Врач" Type="int" Nullable="false" />
+    <Property Name="Донор" Type="int" Nullable="false" />
+    <Property Name="Хранилище" Type="int" Nullable="false" />
+    <Property Name="Объем" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Прием_Оборудование">
+    <Key>
+      <PropertyRef Name="Номер посещения" />
+      <PropertyRef Name="Номер оборудования" />
+    </Key>
+    <Property Name="Номер посещения" Type="int" Nullable="false" />
+    <Property Name="Номер оборудования" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Хранилища крови">
+    <Key>
+      <PropertyRef Name="Номер хранилища" />
+    </Key>
+    <Property Name="Номер хранилища" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Группа крови" Type="nchar" MaxLength="2" Nullable="false" />
+    <Property Name="Расположение (номер кабинета)" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Информация о доноре_Доноры">
+    <End Role="Доноры" Type="Self.Доноры" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Информация о доноре" Type="Self.Информация о доноре" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Доноры">
+        <PropertyRef Name="Номер донора" />
+      </Principal>
+      <Dependent Role="Информация о доноре">
+        <PropertyRef Name="Номер донора" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Медицинское оборудование_Врачи">
+    <End Role="Врачи" Type="Self.Врачи" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Медицинское оборудование" Type="Self.Медицинское оборудование" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Врачи">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Медицинское оборудование">
+        <PropertyRef Name="Номер ответственного сотрудника" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Отделы_Хранилища">
+    <End Role="Хранилища крови" Type="Self.Хранилища крови" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Отделы хранилищ" Type="Self.Отделы хранилищ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Хранилища крови">
+        <PropertyRef Name="Номер хранилища" />
+      </Principal>
+      <Dependent Role="Отделы хранилищ">
+        <PropertyRef Name="Хранилище" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Поставки в больницы_Хранилища крови">
+    <End Role="Хранилища крови" Type="Self.Хранилища крови" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Поставки в больницы" Type="Self.Поставки в больницы" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Хранилища крови">
+        <PropertyRef Name="Номер хранилища" />
+      </Principal>
+      <Dependent Role="Поставки в больницы">
+        <PropertyRef Name="Хранилище" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Прием крови_Врачи">
+    <End Role="Врачи" Type="Self.Врачи" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Прием крови" Type="Self.Прием крови" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Врачи">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Прием крови">
+        <PropertyRef Name="Врач" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Прием крови_Доноры">
+    <End Role="Доноры" Type="Self.Доноры" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Прием крови" Type="Self.Прием крови" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Доноры">
+        <PropertyRef Name="Номер донора" />
+      </Principal>
+      <Dependent Role="Прием крови">
+        <PropertyRef Name="Донор" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Прием крови_Хранилища крови">
+    <End Role="Хранилища крови" Type="Self.Хранилища крови" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Прием крови" Type="Self.Прием крови" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Хранилища крови">
+        <PropertyRef Name="Номер хранилища" />
+      </Principal>
+      <Dependent Role="Прием крови">
+        <PropertyRef Name="Хранилище" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Прием_Оборудование_To_Медицинское_оборудование">
+    <End Role="Медицинское оборудование" Type="Self.Медицинское оборудование" Multiplicity="1" />
+    <End Role="Прием_Оборудование" Type="Self.Прием_Оборудование" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Медицинское оборудование">
+        <PropertyRef Name="Номер оборудования" />
+      </Principal>
+      <Dependent Role="Прием_Оборудование">
+        <PropertyRef Name="Номер оборудования" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Прием_Оборудование_To_Прием_крови">
+    <End Role="Прием крови" Type="Self.Прием крови" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Прием_Оборудование" Type="Self.Прием_Оборудование" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Прием крови">
+        <PropertyRef Name="Номер посещения" />
+      </Principal>
+      <Dependent Role="Прием_Оборудование">
+        <PropertyRef Name="Номер посещения" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddToTheVault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="bloodType" Type="nvarchar" Mode="In" />
+    <Parameter Name="bloodGroup" Type="nchar" Mode="In" />
+    <Parameter Name="volume" Type="real" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="medicPayRise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
+    <Parameter Name="medicId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UpdateOfDonorInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="datetime" Mode="In" />
+    <Parameter Name="bloodType" Type="nvarchar" Mode="In" />
+    <Parameter Name="donorId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище BloodTransfusionStationDBModelContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Врачи" EntityType="Self.Врачи" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Доноры" EntityType="Self.Доноры" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Информация о доноре" EntityType="Self.Информация о доноре" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Медицинское оборудование" EntityType="Self.Медицинское оборудование" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Отделы хранилищ" EntityType="Self.Отделы хранилищ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Поставки в больницы" EntityType="Self.Поставки в больницы" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Прием крови" EntityType="Self.Прием крови" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Прием_Оборудование" EntityType="Self.Прием_Оборудование" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Хранилища крови" EntityType="Self.Хранилища крови" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Информация о доноре_Доноры" Association="Self.FK_Информация о доноре_Доноры">
+      <End Role="Доноры" EntitySet="Доноры" />
+      <End Role="Информация о доноре" EntitySet="Информация о доноре" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Медицинское оборудование_Врачи" Association="Self.FK_Медицинское оборудование_Врачи">
+      <End Role="Врачи" EntitySet="Врачи" />
+      <End Role="Медицинское оборудование" EntitySet="Медицинское оборудование" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Отделы_Хранилища" Association="Self.FK_Отделы_Хранилища">
+      <End Role="Хранилища крови" EntitySet="Хранилища крови" />
+      <End Role="Отделы хранилищ" EntitySet="Отделы хранилищ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Поставки в больницы_Хранилища крови" Association="Self.FK_Поставки в больницы_Хранилища крови">
+      <End Role="Хранилища крови" EntitySet="Хранилища крови" />
+      <End Role="Поставки в больницы" EntitySet="Поставки в больницы" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Прием крови_Врачи" Association="Self.FK_Прием крови_Врачи">
+      <End Role="Врачи" EntitySet="Врачи" />
+      <End Role="Прием крови" EntitySet="Прием крови" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Прием крови_Доноры" Association="Self.FK_Прием крови_Доноры">
+      <End Role="Доноры" EntitySet="Доноры" />
+      <End Role="Прием крови" EntitySet="Прием крови" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Прием крови_Хранилища крови" Association="Self.FK_Прием крови_Хранилища крови">
+      <End Role="Хранилища крови" EntitySet="Хранилища крови" />
+      <End Role="Прием крови" EntitySet="Прием крови" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Прием_Оборудование_To_Медицинское_оборудование" Association="Self.FK_Прием_Оборудование_To_Медицинское_оборудование">
+      <End Role="Медицинское оборудование" EntitySet="Медицинское оборудование" />
+      <End Role="Прием_Оборудование" EntitySet="Прием_Оборудование" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Прием_Оборудование_To_Прием_крови" Association="Self.FK_Прием_Оборудование_To_Прием_крови">
+      <End Role="Прием крови" EntitySet="Прием крови" />
+      <End Role="Прием_Оборудование" EntitySet="Прием_Оборудование" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
