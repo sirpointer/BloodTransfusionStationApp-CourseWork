@@ -98,7 +98,6 @@ C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\bi
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\bin\ru\System.Web.WebPages.resources.dll
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\bin\ru\System.Web.WebPages.Razor.resources.dll
-C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.csprojAssemblyReference.cache
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.csproj.CoreCompileInputs.cache
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.csproj.CopyComplete
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.dll

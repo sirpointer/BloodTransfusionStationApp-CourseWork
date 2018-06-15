@@ -324,6 +324,7 @@
     <Content Include="Views\Поставки_в_больницы\Details.cshtml" />
     <Content Include="Views\Поставки_в_больницы\Edit.cshtml" />
     <Content Include="Views\Поставки_в_больницы\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

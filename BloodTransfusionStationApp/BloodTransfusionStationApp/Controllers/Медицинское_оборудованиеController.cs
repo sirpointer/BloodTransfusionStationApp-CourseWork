@@ -10,6 +10,7 @@ using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
+    [Authorize]
     public class Медицинское_оборудованиеController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
