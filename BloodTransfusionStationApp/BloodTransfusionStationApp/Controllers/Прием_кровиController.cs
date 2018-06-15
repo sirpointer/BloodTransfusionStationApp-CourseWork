@@ -16,10 +16,50 @@ namespace BloodTransfusionStationApp.Controllers
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
 
         // GET: Прием_крови
-        public ActionResult Index()
+        public ActionResult Index(string date)
         {
-            var прием_крови = db.Прием_крови.Include(п => п.Врачи).Include(п => п.Доноры).Include(п => п.Хранилища_крови);
-            return View(прием_крови.ToList());
+
+            if (!string.IsNullOrWhiteSpace(date))
+            {
+                var прием_крови = db.Прием_крови.Include(п => п.Врачи).Include(п => п.Доноры).Include(п => п.Хранилища_крови);
+                DateTime dateTime = new DateTime();
+
+                try
+                {
+                    dateTime = DateTime.Parse(date);
+                }
+                catch (FormatException)
+                {
+                    ViewBag.Error = "Неверный формат.";
+                    return View(прием_крови.ToList());
+                }
+
+                Прием_крови прием;
+
+                try
+                {
+                    прием = прием_крови.Where(i => i.Дата_приема.Day == dateTime.Day
+                                                            && i.Дата_приема.Month == dateTime.Month
+                                                            && i.Дата_приема.Year == dateTime.Year).First();
+                }
+                catch (InvalidOperationException)
+                {
+                    ViewBag.Error = "Прием не найден.";
+                    return View(прием_крови.ToList());
+                }
+
+                if (прием != null)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Прием_крови",
+                        action = "Details",
+                        id = прием.Номер_посещения
+                    });
+                }
+            }
+
+            return View(db.Прием_крови.Include(п => п.Врачи).Include(п => п.Доноры).Include(п => п.Хранилища_крови).ToList());
         }
 
         // GET: Прием_крови/Details/5

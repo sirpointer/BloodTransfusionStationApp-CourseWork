@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Врачи
 
 @{
-    Layout = null;
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,56 +21,57 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Имя)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Имя)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Фамилия)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Фамилия)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Отчество)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Отчество)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Должность)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Должность)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Ставка)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Ставка)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Стаж)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Стаж)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

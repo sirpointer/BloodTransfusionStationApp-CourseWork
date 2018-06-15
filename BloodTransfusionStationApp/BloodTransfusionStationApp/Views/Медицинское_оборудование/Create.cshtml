@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Медицинское_оборудование
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,12 +15,12 @@
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-    
-    @using (Html.BeginForm()) 
+
+
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>Медицинское_оборудование</h4>
             <hr />
@@ -31,7 +32,7 @@
                     @Html.ValidationMessageFor(model => model.Наименование, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Дата_начала_эксплуатации, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -39,7 +40,7 @@
                     @Html.ValidationMessageFor(model => model.Дата_начала_эксплуатации, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Срок_окончания_эксплуатации, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -47,7 +48,7 @@
                     @Html.ValidationMessageFor(model => model.Срок_окончания_эксплуатации, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Расположение__номер_кабинета_, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -55,7 +56,7 @@
                     @Html.ValidationMessageFor(model => model.Расположение__номер_кабинета_, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Номер_ответственного_сотрудника, "Номер_ответственного_сотрудника", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -63,7 +64,7 @@
                     @Html.ValidationMessageFor(model => model.Номер_ответственного_сотрудника, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -71,7 +72,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>

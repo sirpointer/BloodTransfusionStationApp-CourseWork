@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Прием_крови
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,64 +21,65 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Дата_приема)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Дата_приема)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Вознаграждение)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Вознаграждение)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Вид_донорства)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Вид_донорства)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Объем)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Объем)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Врачи.Имя)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Врачи.Имя)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Доноры.Имя)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Доноры.Имя)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Хранилища_крови.Группа_крови)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

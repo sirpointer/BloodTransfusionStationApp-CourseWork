@@ -16,8 +16,34 @@ namespace BloodTransfusionStationApp.Controllers
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
 
         // GET: Врачи
-        public ActionResult Index()
+        public ActionResult Index(string doctorLastName)
         {
+            if (!string.IsNullOrWhiteSpace(doctorLastName))
+            {
+                Врачи doc;
+
+                try
+                {
+                    doc = db.Врачи.Where(d => d.Фамилия.Equals(doctorLastName, StringComparison.CurrentCultureIgnoreCase)).First();
+                }
+                catch(InvalidOperationException)
+                {
+                    doc = null;
+                }
+
+                if (doc != null)
+                {
+                    return RedirectToRoute(new
+                    {
+                        controller = "Врачи",
+                        action = "Details",
+                        id = doc.Id
+                    });
+                }
+                else
+                    ViewBag.Error = "Информация об этом враче отсутствует.";
+            }
+
             return View(db.Врачи.ToList());
         }
 

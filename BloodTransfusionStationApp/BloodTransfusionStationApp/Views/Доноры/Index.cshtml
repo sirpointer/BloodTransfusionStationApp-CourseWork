@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Доноры>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,6 +13,19 @@
     <title>Index</title>
 </head>
 <body>
+    <div>
+        <br />
+        @using (Html.BeginForm("Index", "Доноры", FormMethod.Get))
+        {
+            <p>
+                Фильтрация по групе крови: @Html.TextBox("searchString")
+                <br />
+                <input type="submit" value="Фильтр" class="btn btn-default" />
+            </p>
+        }
+        @ViewBag.Error
+    </div>
+    <br/>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -46,44 +60,45 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Имя)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Фамилия)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Отчество)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Дата_рождения)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Пол)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Группа_крови)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Телефон)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Адрес)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Паспортные_данные)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Номер_донора }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Номер_донора }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Номер_донора })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Имя)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Фамилия)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Отчество)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Дата_рождения)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Пол)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Группа_крови)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Телефон)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Адрес)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Паспортные_данные)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_донора }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Номер_донора }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_донора })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

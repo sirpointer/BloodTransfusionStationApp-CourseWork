@@ -150,5 +150,18 @@
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище BloodTransfusionStationDBModel.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище BloodTransfusionStationDBModel.sp_upgraddiagrams" />
     <FunctionImportMapping FunctionImportName="UpdateOfDonorInformation" FunctionName="Хранилище BloodTransfusionStationDBModel.UpdateOfDonorInformation" />
+    <FunctionImportMapping FunctionImportName="FullTakingBloodInf" FunctionName="Хранилище BloodTransfusionStationDBModel.FullTakingBloodInf">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BloodTransfusionStationDBModel.FullTakingBloodInf_Result">
+          <ScalarProperty Name="Имя_донора" ColumnName="Имя донора" />
+          <ScalarProperty Name="Фамилия_донора" ColumnName="Фамилия донора" />
+          <ScalarProperty Name="Вид_донорства" ColumnName="Вид донорства" />
+          <ScalarProperty Name="Группа_крови" ColumnName="Группа крови" />
+          <ScalarProperty Name="Дата_приема" ColumnName="Дата приема" />
+          <ScalarProperty Name="Имя_врача" ColumnName="Имя врача" />
+          <ScalarProperty Name="Фамилия_врача" ColumnName="Фамилия врача" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

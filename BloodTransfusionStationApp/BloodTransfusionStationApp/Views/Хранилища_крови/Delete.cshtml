@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Хранилища_крови
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,24 +21,25 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Группа_крови)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Группа_крови)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Расположение__номер_кабинета_)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Расположение__номер_кабинета_)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

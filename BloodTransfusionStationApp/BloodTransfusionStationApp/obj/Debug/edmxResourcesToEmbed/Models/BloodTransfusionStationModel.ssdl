@@ -244,8 +244,20 @@
     <Parameter Name="volume" Type="real" Mode="In" />
   </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="medicPayRise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
-    <Parameter Name="medicId" Type="int" Mode="In" />
+  <Function Name="FullTakingBloodInf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Имя донора" Type="nvarchar" MaxLength="50" />
+          <Property Name="Фамилия донора" Type="nvarchar" MaxLength="50" />
+          <Property Name="Вид донорства" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Группа крови" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Дата приема" Type="date" Nullable="false" />
+          <Property Name="Имя врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Фамилия врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
   </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />

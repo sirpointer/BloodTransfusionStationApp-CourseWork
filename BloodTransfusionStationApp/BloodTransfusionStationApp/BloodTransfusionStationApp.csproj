@@ -184,6 +184,9 @@
       <DependentUpon>BloodTransfusionStationModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DataOfUser.cs" />
+    <Compile Include="Models\FullTakingBloodInf_Result.cs">
+      <DependentUpon>BloodTransfusionStationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>BloodTransfusionStationModel.tt</DependentUpon>
     </Compile>
@@ -308,7 +311,6 @@
     <Content Include="Views\Врачи\Delete.cshtml" />
     <Content Include="Views\Врачи\Details.cshtml" />
     <Content Include="Views\Врачи\Edit.cshtml" />
-    <Content Include="Views\Врачи\Index.cshtml" />
     <Content Include="Views\Хранилища_крови\Create.cshtml" />
     <Content Include="Views\Хранилища_крови\Delete.cshtml" />
     <Content Include="Views\Хранилища_крови\Details.cshtml" />
@@ -325,6 +327,7 @@
     <Content Include="Views\Поставки_в_больницы\Edit.cshtml" />
     <Content Include="Views\Поставки_в_больницы\Index.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Врачи\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

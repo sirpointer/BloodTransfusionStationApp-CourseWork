@@ -102,3 +102,4 @@ C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\ob
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.csproj.CopyComplete
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.dll
 C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.pdb
+C:\Users\sirpo\OneDrive\BloodTransfusionStationApp\BloodTransfusionStationApp\obj\Debug\BloodTransfusionStationApp.csprojAssemblyReference.cache

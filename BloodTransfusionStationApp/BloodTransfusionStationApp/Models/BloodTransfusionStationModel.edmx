@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище BloodTransfusionStationDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище BloodTransfusionStationDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -249,8 +249,20 @@
           <Parameter Name="volume" Type="real" Mode="In" />
         </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="medicPayRise" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="money">
-          <Parameter Name="medicId" Type="int" Mode="In" />
+        <Function Name="FullTakingBloodInf" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Имя донора" Type="nvarchar" MaxLength="50" />
+                <Property Name="Фамилия донора" Type="nvarchar" MaxLength="50" />
+                <Property Name="Вид донорства" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Группа крови" Type="nchar" MaxLength="2" Nullable="false" />
+                <Property Name="Дата приема" Type="date" Nullable="false" />
+                <Property Name="Имя врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Фамилия врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -335,8 +347,7 @@
             <End Role="Прием_Оборудование" EntitySet="Прием_Оборудование" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BloodTransfusionStationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -646,6 +657,7 @@
             <Parameter Name="bloodType" Mode="In" Type="String" />
             <Parameter Name="donorId" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="FullTakingBloodInf" IsComposable="true" ReturnType="Collection(BloodTransfusionStationDBModel.FullTakingBloodInf_Result)" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -657,6 +669,15 @@
           <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FullTakingBloodInf_Result">
+          <Property Type="String" Name="Имя_донора" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Фамилия_донора" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Вид_донорства" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Группа_крови" Nullable="false" MaxLength="2" />
+          <Property Type="DateTime" Name="Дата_приема" Nullable="false" Precision="10" />
+          <Property Type="String" Name="Имя_врача" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Фамилия_врача" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -813,6 +834,19 @@
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище BloodTransfusionStationDBModel.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище BloodTransfusionStationDBModel.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="UpdateOfDonorInformation" FunctionName="Хранилище BloodTransfusionStationDBModel.UpdateOfDonorInformation" />
+          <FunctionImportMapping FunctionImportName="FullTakingBloodInf" FunctionName="Хранилище BloodTransfusionStationDBModel.FullTakingBloodInf">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BloodTransfusionStationDBModel.FullTakingBloodInf_Result">
+                <ScalarProperty Name="Имя_донора" ColumnName="Имя донора" />
+                <ScalarProperty Name="Фамилия_донора" ColumnName="Фамилия донора" />
+                <ScalarProperty Name="Вид_донорства" ColumnName="Вид донорства" />
+                <ScalarProperty Name="Группа_крови" ColumnName="Группа крови" />
+                <ScalarProperty Name="Дата_приема" ColumnName="Дата приема" />
+                <ScalarProperty Name="Имя_врача" ColumnName="Имя врача" />
+                <ScalarProperty Name="Фамилия_врача" ColumnName="Фамилия врача" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -827,7 +861,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />

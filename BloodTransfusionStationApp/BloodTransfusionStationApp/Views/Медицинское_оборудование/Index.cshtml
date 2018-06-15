@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Медицинское_оборудование>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -34,32 +35,33 @@
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Наименование)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Дата_начала_эксплуатации)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Срок_окончания_эксплуатации)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Расположение__номер_кабинета_)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Врачи.Имя)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Номер_оборудования }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Номер_оборудования }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Номер_оборудования })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Наименование)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Дата_начала_эксплуатации)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Срок_окончания_эксплуатации)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Расположение__номер_кабинета_)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Врачи.Имя)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_оборудования }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Номер_оборудования }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_оборудования })
+                </td>
+            </tr>
+        }
+
     </table>
 </body>
 </html>

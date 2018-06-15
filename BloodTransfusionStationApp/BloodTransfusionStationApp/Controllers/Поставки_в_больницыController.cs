@@ -10,15 +10,33 @@ using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class Поставки_в_больницыController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
 
         // GET: Поставки_в_больницы
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
             var поставки_в_больницы = db.Поставки_в_больницы.Include(п => п.Хранилища_крови);
+
+            if (!string.IsNullOrWhiteSpace(searchString))
+            {
+                DateTime date = new DateTime();
+
+                try
+                {
+                    date = DateTime.Parse(searchString);
+                }
+                catch (FormatException)
+                {
+                    ViewBag.Error = "Неверный формат.";
+                }
+
+                if (date != null)
+                    поставки_в_больницы = поставки_в_больницы.Where(x => x.Дата_поставки > date);
+            }
+
             return View(поставки_в_больницы.ToList());
         }
 
