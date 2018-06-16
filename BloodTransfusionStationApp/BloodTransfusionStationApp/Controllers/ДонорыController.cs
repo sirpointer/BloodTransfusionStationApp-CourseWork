@@ -10,13 +10,21 @@ using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
+    [Authorize]
     public class ДонорыController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
 
         // GET: Доноры
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            if (!String.IsNullOrWhiteSpace(searchString))
+            {
+                var elem = db.Доноры.AsQueryable();
+                elem = db.Доноры.Where(d => d.Группа_крови.Trim().Equals(searchString.Trim(), StringComparison.OrdinalIgnoreCase));
+                return View(elem.ToList());
+            }
+
             return View(db.Доноры.ToList());
         }
 

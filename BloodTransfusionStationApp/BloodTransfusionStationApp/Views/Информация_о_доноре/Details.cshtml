@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Информация_о_доноре
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -17,69 +18,69 @@
         <hr />
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Количество_сдач_цельной_крови_за_последний_год)
+                Количество сдач цельной крови за последний год
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Количество_сдач_цельной_крови_за_последний_год)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Последняя_дата_сдачи_имунной_плазмы)
+                Последняя дата сдачи иммунной плазмы
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Последняя_дата_сдачи_имунной_плазмы)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Последий_тромбоцитаферез)
+                Последий тромбоцитаферез
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Последий_тромбоцитаферез)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Последний_плазмаферез)
+                Последний плазмаферез
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Последний_плазмаферез)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Последний_эритроцитаферез)
+                Последний эритроцитаферез
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Последний_эритроцитаферез)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Пройдено_медицинское_обследование)
+                Пройдено медицинское обследование
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Пройдено_медицинское_обследование)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Окончание_действия_мед__обследования)
+                Окончание действия мед обследования
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Окончание_действия_мед__обследования)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Доноры.Имя)
+                @Html.DisplayNameFor(model => model.Доноры.Фамилия)
             </dt>
-    
+
             <dd>
-                @Html.DisplayFor(model => model.Доноры.Имя)
+                @Html.DisplayFor(model => model.Доноры.Фамилия)
             </dd>
-    
+
         </dl>
     </div>
     <p>

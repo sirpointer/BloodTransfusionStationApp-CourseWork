@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Доноры
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -19,75 +20,75 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Имя)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Имя)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Фамилия)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Фамилия)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Отчество)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Отчество)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Дата_рождения)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Дата_рождения)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Пол)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Пол)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Группа_крови)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Группа_крови)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Телефон)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Телефон)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Адрес)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Адрес)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Паспортные_данные)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Паспортные_данные)
             </dd>
-    
+
         </dl>
     </div>
     <p>

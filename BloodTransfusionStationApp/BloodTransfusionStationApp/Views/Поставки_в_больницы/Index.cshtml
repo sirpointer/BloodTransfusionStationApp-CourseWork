@@ -1,17 +1,24 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Поставки_в_больницы>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Поставки в больницы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h2>Поставки в больницы</h2>
+    <div>
+        <br />
+        @using (Html.BeginForm("Index", "Поставки_в_больницы", FormMethod.Get))
+        {
+            <p>
+                Дата поставки после: @Html.TextBox("searchString")
+                <br />
+                <input type="submit" value="Фильтр" class="btn btn-default" />
+            </p>
+        }
+        @ViewBag.Error
+    </div>
+    <br />
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -24,66 +31,65 @@
                 @Html.DisplayNameFor(model => model.Адрес)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Объем_поставки_цельной_крови)
+                Объем цельной крови
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Объем_поставки_плазмы_крови)
+                Объем плазмы крови
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Объем_поставки_имунной_плазмы)
+                Объем имунной плазмы
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Объем_поставки_эретроцитов_крови)
+                Объем эретроцитов крови
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Объем_поставки_тромбоцитного_концентрата)
+                Объем тромбоцитного концентрата
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Дата_поставки)
+                Дата поставки
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
+                Группа крови
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Название)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Адрес)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Объем_поставки_цельной_крови)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Объем_поставки_плазмы_крови)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Объем_поставки_имунной_плазмы)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Объем_поставки_эретроцитов_крови)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Объем_поставки_тромбоцитного_концентрата)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Дата_поставки)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Название)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Адрес)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Объем_поставки_цельной_крови)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Объем_поставки_плазмы_крови)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Объем_поставки_имунной_плазмы)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Объем_поставки_эретроцитов_крови)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Объем_поставки_тромбоцитного_концентрата)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Дата_поставки)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
     </table>
-</body>
-</html>

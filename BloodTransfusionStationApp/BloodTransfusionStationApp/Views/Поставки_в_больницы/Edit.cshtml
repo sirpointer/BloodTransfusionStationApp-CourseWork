@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Поставки_в_больницы
 
 @{
-    Layout = null;
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,18 +15,18 @@
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-    
+
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
-            <h4>Поставки_в_больницы</h4>
+            <h4>Поставки в больницы</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Название, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -33,7 +34,7 @@
                     @Html.ValidationMessageFor(model => model.Название, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Адрес, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -41,47 +42,47 @@
                     @Html.ValidationMessageFor(model => model.Адрес, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Объем_поставки_цельной_крови, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Объем_поставки_цельной_крови, "Объем поставки цельной крови", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Объем_поставки_цельной_крови, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Объем_поставки_цельной_крови, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Объем_поставки_плазмы_крови, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Объем_поставки_плазмы_крови, labelText: "Плазма крови", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Объем_поставки_плазмы_крови, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Объем_поставки_плазмы_крови, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Объем_поставки_имунной_плазмы, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Объем_поставки_имунной_плазмы, "Объем поставки имунной плазмы", htmlAttributes: new { @class = "control -label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Объем_поставки_имунной_плазмы, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Объем_поставки_имунной_плазмы, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Объем_поставки_эретроцитов_крови, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Объем_поставки_эретроцитов_крови, "Объем поставки эретроцитов крови", htmlAttributes: new { @class = "control -label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Объем_поставки_эретроцитов_крови, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Объем_поставки_эретроцитов_крови, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Объем_поставки_тромбоцитного_концентрата, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Объем_поставки_тромбоцитного_концентрата, "Объем поставки тромбоцитного концентрата", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Объем_поставки_тромбоцитного_концентрата, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Объем_поставки_тромбоцитного_концентрата, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Хранилище, "Хранилище", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -89,15 +90,15 @@
                     @Html.ValidationMessageFor(model => model.Хранилище, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
-                @Html.LabelFor(model => model.Дата_поставки, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.Дата_поставки, "Дата поставки", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Дата_поставки, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Дата_поставки, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />
@@ -105,7 +106,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>

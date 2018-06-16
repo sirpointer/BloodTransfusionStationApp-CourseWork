@@ -1,77 +1,82 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Прием_крови>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Приемы крови";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h2>Приемы крови</h2>
+    <div>
+        <br />
+        @using (Html.BeginForm("Index", "Прием_крови", FormMethod.Get))
+        {
+            <p>
+                Введите дату сдачи крови: @Html.TextBox("date")
+                <button type="submit" class="btn btn-default">Искать</button>
+            </p>
+        }
+        @ViewBag.Error
+    </div>
+    <br />
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Дата_приема)
+                Дата приема
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Вознаграждение)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Вид_донорства)
+                Вид донорства
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Объем)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Врачи.Имя)
+                @Html.DisplayNameFor(model => model.Врачи.Фамилия)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Доноры.Имя)
+                Врач
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
+                Группа крови
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Дата_приема)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Вознаграждение)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Вид_донорства)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Объем)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Врачи.Имя)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Доноры.Имя)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Номер_посещения }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Номер_посещения }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Номер_посещения })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Дата_приема, "Дата приема")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Вознаграждение)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Вид_донорства, "Вид донорства")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Объем)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Врачи.Фамилия, "Врач")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Доноры.Фамилия)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови, "Группа крови")
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_посещения }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Номер_посещения }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_посещения })
+                </td>
+            </tr>
+        }
+
     </table>
-</body>
-</html>

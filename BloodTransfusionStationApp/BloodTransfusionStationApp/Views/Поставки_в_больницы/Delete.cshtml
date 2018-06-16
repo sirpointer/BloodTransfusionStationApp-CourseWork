@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Поставки_в_больницы
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -20,80 +21,81 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Название)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Название)
             </dd>
-    
+
             <dt>
                 @Html.DisplayNameFor(model => model.Адрес)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Адрес)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Объем_поставки_цельной_крови)
+                Объем поставки цельной крови
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Объем_поставки_цельной_крови)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Объем_поставки_плазмы_крови)
+                Объем поставки плазмы крови
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Объем_поставки_плазмы_крови)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Объем_поставки_имунной_плазмы)
+                Объем поставки имунной плазмы
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Объем_поставки_имунной_плазмы)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Объем_поставки_эретроцитов_крови)
+                Объем поставки эретроцитов крови
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Объем_поставки_эретроцитов_крови)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Объем_поставки_тромбоцитного_концентрата)
+                Объем поставки тромбоцитного концентрата
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Объем_поставки_тромбоцитного_концентрата)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Дата_поставки)
+                Дата поставки
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Дата_поставки)
             </dd>
-    
+
             <dt>
-                @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
+                Группа крови
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.Хранилища_крови.Группа_крови)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

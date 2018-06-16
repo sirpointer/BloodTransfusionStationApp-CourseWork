@@ -173,5 +173,11 @@ namespace BloodTransfusionStationApp.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateOfDonorInformation", dateParameter, bloodTypeParameter, donorIdParameter);
         }
+    
+        [DbFunction("BloodTransfusionStationDBEntities", "FullTakingBloodInf")]
+        public virtual IQueryable<FullTakingBloodInf_Result> FullTakingBloodInf()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<FullTakingBloodInf_Result>("[BloodTransfusionStationDBEntities].[FullTakingBloodInf]()");
+        }
     }
 }

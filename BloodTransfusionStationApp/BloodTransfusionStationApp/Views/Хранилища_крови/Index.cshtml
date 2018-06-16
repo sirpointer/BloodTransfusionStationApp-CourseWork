@@ -1,47 +1,40 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Хранилища_крови>
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h2>Хранилища крови</h2>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Группа_крови)
+                Группа крови
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Расположение__номер_кабинета_)
+                Расположение номер кабинета
             </th>
             <th></th>
         </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Группа_крови)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Расположение__номер_кабинета_)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Номер_хранилища }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Номер_хранилища }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Номер_хранилища })
-            </td>
-        </tr>
-    }
-    
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Группа_крови)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Расположение__номер_кабинета_)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_хранилища }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Номер_хранилища }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_хранилища })
+                </td>
+            </tr>
+        }
+
     </table>
-</body>
-</html>

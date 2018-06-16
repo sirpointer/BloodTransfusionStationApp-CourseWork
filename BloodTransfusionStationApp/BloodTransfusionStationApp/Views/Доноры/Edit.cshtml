@@ -1,7 +1,8 @@
 ﻿@model BloodTransfusionStationApp.Models.Доноры
 
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,18 +15,18 @@
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-    
+
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>Доноры</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Номер_донора)
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Имя, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -33,7 +34,7 @@
                     @Html.ValidationMessageFor(model => model.Имя, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Фамилия, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -41,7 +42,7 @@
                     @Html.ValidationMessageFor(model => model.Фамилия, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Отчество, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -49,7 +50,7 @@
                     @Html.ValidationMessageFor(model => model.Отчество, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Дата_рождения, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -57,7 +58,7 @@
                     @Html.ValidationMessageFor(model => model.Дата_рождения, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Пол, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -67,7 +68,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Группа_крови, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -75,7 +76,7 @@
                     @Html.ValidationMessageFor(model => model.Группа_крови, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Телефон, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -83,7 +84,7 @@
                     @Html.ValidationMessageFor(model => model.Телефон, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Адрес, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -91,7 +92,7 @@
                     @Html.ValidationMessageFor(model => model.Адрес, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Паспортные_данные, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -99,7 +100,7 @@
                     @Html.ValidationMessageFor(model => model.Паспортные_данные, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />
@@ -107,7 +108,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>

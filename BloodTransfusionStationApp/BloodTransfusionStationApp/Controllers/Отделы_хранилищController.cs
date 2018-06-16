@@ -10,15 +10,22 @@ using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
+    [Authorize]
     public class Отделы_хранилищController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
 
         // GET: Отделы_хранилищ
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            var отделы_хранилищ = db.Отделы_хранилищ.Include(о => о.Хранилища_крови);
-            return View(отделы_хранилищ.ToList());
+            if (!String.IsNullOrWhiteSpace(searchString))
+            {
+                var elem = db.Отделы_хранилищ.Include(о => о.Хранилища_крови).AsQueryable();
+                elem = elem.Where(e => e.Тип_крови.Trim().Contains(searchString.Trim()));
+                return View(elem.ToList());
+            }
+
+            return View(db.Отделы_хранилищ.Include(о => о.Хранилища_крови).ToList());
         }
 
         // GET: Отделы_хранилищ/Details/5
