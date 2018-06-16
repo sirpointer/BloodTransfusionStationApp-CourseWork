@@ -5,24 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h2>Хранилища крови</h2>
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Группа_крови)
+                Группа крови
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Расположение__номер_кабинета_)
+                Расположение номер кабинета
             </th>
             <th></th>
         </tr>
@@ -45,5 +38,3 @@
         }
 
     </table>
-</body>
-</html>

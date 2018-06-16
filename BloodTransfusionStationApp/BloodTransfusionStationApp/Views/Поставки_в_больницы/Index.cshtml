@@ -1,18 +1,11 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Поставки_в_больницы>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Поставки в больницы";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h2>Поставки в больницы</h2>
     <div>
         <br />
         @using (Html.BeginForm("Index", "Поставки_в_больницы", FormMethod.Get))
@@ -100,5 +93,3 @@
         }
 
     </table>
-</body>
-</html>

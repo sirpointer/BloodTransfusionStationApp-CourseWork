@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace BloodTransfusionStationApp.Controllers
 {
+    [Authorize]
     public class FullIntakeInfoController : Controller
     {
         private readonly BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();

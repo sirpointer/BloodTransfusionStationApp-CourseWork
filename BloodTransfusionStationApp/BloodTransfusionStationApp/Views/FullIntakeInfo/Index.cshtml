@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.FullTakingBloodInf_Result>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Расширенная информация о донорах";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Расширенная информация о донорах</h2>
 
 <br/>
 <table class="table">
@@ -17,13 +17,13 @@
             @Html.DisplayNameFor(model => model.Фамилия)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Вид_донорства)
+            Вид донорства
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Группа_крови)
+            Группа крови
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Фамилия_врача)
+            Фамилия врача
         </th>
     </tr>
 

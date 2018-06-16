@@ -1,18 +1,12 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Медицинское_оборудование>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Медицинское оборудование";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+<h2>Медицинское оборудование</h2>
+    <br />
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -22,16 +16,16 @@
                 @Html.DisplayNameFor(model => model.Наименование)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Дата_начала_эксплуатации)
+                Дата начала эксплуатации
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Срок_окончания_эксплуатации)
+                Срок окончания эксплуатации
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Расположение__номер_кабинета_)
+                Расположение (номер кабинета)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Врачи.Имя)
+                Ответственное лицо
             </th>
             <th></th>
         </tr>
@@ -52,7 +46,7 @@
                     @Html.DisplayFor(modelItem => item.Расположение__номер_кабинета_)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Врачи.Имя)
+                    @Html.DisplayFor(modelItem => item.Врачи.Фамилия)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Номер_оборудования }) |
@@ -63,5 +57,3 @@
         }
 
     </table>
-</body>
-</html>

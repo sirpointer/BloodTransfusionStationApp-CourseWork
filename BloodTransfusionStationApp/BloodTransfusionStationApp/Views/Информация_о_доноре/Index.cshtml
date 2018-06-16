@@ -1,46 +1,41 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Информация_о_доноре>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Информация о донорах";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h2>Информация о донорах</h2>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+    <br />
     <p>
         @Html.ActionLink("Create New", "Create")
     </p>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Количество_сдач_цельной_крови_за_последний_год)
+                Количество сдач цельной крови за последний год
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Последняя_дата_сдачи_имунной_плазмы)
+                Последняя дата сдачи иммунной плазмы
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Последий_тромбоцитаферез)
+                Последий тромбоцитаферез
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Последний_плазмаферез)
+                Последний плазмаферез
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Последний_эритроцитаферез)
+                Последний эритроцитаферез
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Пройдено_медицинское_обследование)
+                Пройдено медицинское обследование
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Окончание_действия_мед__обследования)
+                Окончание действия мед обследования
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Доноры.Имя)
+                @Html.DisplayNameFor(model => model.Доноры.Фамилия)
             </th>
             <th></th>
         </tr>
@@ -70,7 +65,7 @@
                     @Html.DisplayFor(modelItem => item.Окончание_действия_мед__обследования)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Доноры.Имя)
+                    @Html.DisplayFor(modelItem => item.Доноры.Фамилия)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Номер_донора }) |
@@ -81,5 +76,3 @@
         }
 
     </table>
-</body>
-</html>

@@ -10,7 +10,7 @@ using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class Прием_кровиController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();

@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<BloodTransfusionStationApp.Models.Врачи>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Врачи";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Врачи</h2>
 
 <div>
     @using (Html.BeginForm("Index", "Врачи", FormMethod.Get))
@@ -18,7 +18,6 @@
     @ViewBag.Error
 </div>
 <br />
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

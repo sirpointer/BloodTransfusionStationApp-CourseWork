@@ -17,6 +17,12 @@ namespace BloodTransfusionStationApp.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult Tables()
+        {
+            return View();
+        }
+
         public ActionResult Login()
         {
             return View();
@@ -62,20 +68,6 @@ namespace BloodTransfusionStationApp.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Home");
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }
