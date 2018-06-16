@@ -320,12 +320,12 @@
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
   <ComplexType Name="FullTakingBloodInf_Result">
-    <Property Type="String" Name="Имя_донора" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="Фамилия_донора" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="Вид_донорства" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Группа_крови" Nullable="false" MaxLength="2" />
     <Property Type="DateTime" Name="Дата_приема" Nullable="false" Precision="10" />
-    <Property Type="String" Name="Имя_врача" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="Фамилия_врача" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Имя" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Фамилия" Nullable="true" MaxLength="50" />
+    <Property Type="Single" Name="Объем" Nullable="false" />
   </ComplexType>
 </Schema>

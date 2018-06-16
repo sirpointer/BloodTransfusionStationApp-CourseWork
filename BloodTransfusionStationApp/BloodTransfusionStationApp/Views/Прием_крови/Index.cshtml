@@ -14,6 +14,7 @@
 </head>
 <body>
     <div>
+        <br />
         @using (Html.BeginForm("Index", "Прием_крови", FormMethod.Get))
         {
             <p>
@@ -30,25 +31,25 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Дата_приема)
+                Дата приема
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Вознаграждение)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Вид_донорства)
+                Вид донорства
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Объем)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Врачи.Имя)
+                @Html.DisplayNameFor(model => model.Врачи.Фамилия)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Доноры.Имя)
+                Врач
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Хранилища_крови.Группа_крови)
+                Группа крови
             </th>
             <th></th>
         </tr>
@@ -57,25 +58,25 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Дата_приема)
+                    @Html.DisplayFor(modelItem => item.Дата_приема, "Дата приема")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Вознаграждение)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Вид_донорства)
+                    @Html.DisplayFor(modelItem => item.Вид_донорства, "Вид донорства")
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Объем)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Врачи.Имя)
+                    @Html.DisplayFor(modelItem => item.Врачи.Фамилия, "Врач")
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Доноры.Имя)
+                    @Html.DisplayFor(modelItem => item.Доноры.Фамилия)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови)
+                    @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови, "Группа крови")
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Номер_посещения }) |

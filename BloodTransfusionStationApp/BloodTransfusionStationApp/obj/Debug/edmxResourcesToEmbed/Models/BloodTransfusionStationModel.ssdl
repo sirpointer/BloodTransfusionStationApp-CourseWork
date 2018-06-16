@@ -248,12 +248,12 @@
     <ReturnType>
       <CollectionType>
         <RowType>
-          <Property Name="Имя донора" Type="nvarchar" MaxLength="50" />
-          <Property Name="Фамилия донора" Type="nvarchar" MaxLength="50" />
-          <Property Name="Вид донорства" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Группа крови" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="50" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
           <Property Name="Дата приема" Type="date" Nullable="false" />
-          <Property Name="Имя врача" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Группа крови" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Вид донорства" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Объем" Type="real" Nullable="false" />
           <Property Name="Фамилия врача" Type="nvarchar" MaxLength="50" Nullable="false" />
         </RowType>
       </CollectionType>

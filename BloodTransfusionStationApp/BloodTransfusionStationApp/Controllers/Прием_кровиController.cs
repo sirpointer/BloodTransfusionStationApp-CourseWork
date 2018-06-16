@@ -10,7 +10,7 @@ using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class Прием_кровиController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
@@ -95,14 +95,23 @@ namespace BloodTransfusionStationApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                var bloodGroup = db.Доноры.Find(прием_крови.Донор).Группа_крови;
+
+                прием_крови.Хранилище = db.Хранилища_крови.Where(x => x.Группа_крови == bloodGroup).First().Номер_хранилища;
+
                 db.Прием_крови.Add(прием_крови);
+
+                db.UpdateOfDonorInformation(прием_крови.Дата_приема, прием_крови.Вид_донорства, прием_крови.Донор);
+
+                db.AddToTheVault(прием_крови.Вид_донорства, bloodGroup, прием_крови.Объем);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             ViewBag.Врач = new SelectList(db.Врачи, "Id", "Имя", прием_крови.Врач);
             ViewBag.Донор = new SelectList(db.Доноры, "Номер_донора", "Имя", прием_крови.Донор);
-            ViewBag.Хранилище = new SelectList(db.Хранилища_крови, "Номер_хранилища", "Группа_крови", прием_крови.Хранилище);
+            //ViewBag.Хранилище = new SelectList(db.Хранилища_крови, "Номер_хранилища", "Группа_крови", прием_крови.Хранилище);
             return View(прием_крови);
         }
 

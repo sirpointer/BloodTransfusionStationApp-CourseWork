@@ -13,12 +13,12 @@ namespace BloodTransfusionStationApp.Models
     
     public partial class FullTakingBloodInf_Result
     {
-        public string Имя_донора { get; set; }
-        public string Фамилия_донора { get; set; }
         public string Вид_донорства { get; set; }
         public string Группа_крови { get; set; }
         public System.DateTime Дата_приема { get; set; }
-        public string Имя_врача { get; set; }
         public string Фамилия_врача { get; set; }
+        public string Имя { get; set; }
+        public string Фамилия { get; set; }
+        public float Объем { get; set; }
     }
 }

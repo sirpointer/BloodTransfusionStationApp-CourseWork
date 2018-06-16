@@ -153,13 +153,13 @@
     <FunctionImportMapping FunctionImportName="FullTakingBloodInf" FunctionName="Хранилище BloodTransfusionStationDBModel.FullTakingBloodInf">
       <ResultMapping>
         <ComplexTypeMapping TypeName="BloodTransfusionStationDBModel.FullTakingBloodInf_Result">
-          <ScalarProperty Name="Имя_донора" ColumnName="Имя донора" />
-          <ScalarProperty Name="Фамилия_донора" ColumnName="Фамилия донора" />
           <ScalarProperty Name="Вид_донорства" ColumnName="Вид донорства" />
           <ScalarProperty Name="Группа_крови" ColumnName="Группа крови" />
           <ScalarProperty Name="Дата_приема" ColumnName="Дата приема" />
-          <ScalarProperty Name="Имя_врача" ColumnName="Имя врача" />
           <ScalarProperty Name="Фамилия_врача" ColumnName="Фамилия врача" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+          <ScalarProperty Name="Объем" ColumnName="Объем" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
