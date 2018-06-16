@@ -40,7 +40,7 @@ namespace BloodTransfusionStationApp.Controllers
         // GET: Медицинское_оборудование/Create
         public ActionResult Create()
         {
-            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Имя");
+            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Фамилия");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace BloodTransfusionStationApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Имя", медицинское_оборудование.Номер_ответственного_сотрудника);
+            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Фамилия", медицинское_оборудование.Номер_ответственного_сотрудника);
             return View(медицинское_оборудование);
         }
 
@@ -74,7 +74,7 @@ namespace BloodTransfusionStationApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Имя", медицинское_оборудование.Номер_ответственного_сотрудника);
+            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Фамилия", медицинское_оборудование.Номер_ответственного_сотрудника);
             return View(медицинское_оборудование);
         }
 
@@ -91,7 +91,7 @@ namespace BloodTransfusionStationApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Имя", медицинское_оборудование.Номер_ответственного_сотрудника);
+            ViewBag.Номер_ответственного_сотрудника = new SelectList(db.Врачи, "Id", "Фамилия", медицинское_оборудование.Номер_ответственного_сотрудника);
             return View(медицинское_оборудование);
         }
 

@@ -1,12 +1,13 @@
 ﻿
 @{  
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
     @if (User.Identity.IsAuthenticated)
     {
-        <h1>Welcome user @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Guest")</h1>
+        <h1>Lобро пожаловать @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Гость")</h1>
         <a href="@Url.Action("SignOut","Home")">Logout</a>
     }
 </div>
