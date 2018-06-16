@@ -40,7 +40,9 @@ namespace BloodTransfusionStationApp.Controllers
                 {
                     прием = прием_крови.Where(i => i.Дата_приема.Day == dateTime.Day
                                                             && i.Дата_приема.Month == dateTime.Month
-                                                            && i.Дата_приема.Year == dateTime.Year).First();
+                                                            && i.Дата_приема.Year == dateTime.Year
+                                                            && i.Дата_приема.Hour == dateTime.Hour
+                                                            && i.Дата_приема.Minute == dateTime.Minute).First();
                 }
                 catch (InvalidOperationException)
                 {
