@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Расширенная информация о донорах</h2>
+<h2>Расширенная информация о приемах</h2>
 
 <br/>
 <table class="table">
@@ -21,6 +21,12 @@
         </th>
         <th>
             Группа крови
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Объем)
+        </th>
+        <th>
+            Дата приема
         </th>
         <th>
             Фамилия врача
@@ -40,6 +46,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Группа_крови)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Объем)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Дата_приема)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Фамилия_врача)
