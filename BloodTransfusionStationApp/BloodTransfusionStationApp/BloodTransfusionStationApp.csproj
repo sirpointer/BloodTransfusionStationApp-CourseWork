@@ -197,7 +197,6 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>BloodTransfusionStationModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UsersModel.cs" />
     <Compile Include="Models\Врачи.cs">
       <DependentUpon>BloodTransfusionStationModel.tt</DependentUpon>
     </Compile>
@@ -228,10 +227,6 @@
     <Content Include="App_Data\BloodTransfusionStationDB.mdf" />
     <Content Include="App_Data\BloodTransfusionStationDB_log.ldf">
       <DependentUpon>BloodTransfusionStationDB.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\UsersDB.mdf" />
-    <Content Include="App_Data\UsersDB_log.ldf">
-      <DependentUpon>UsersDB.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -274,7 +269,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

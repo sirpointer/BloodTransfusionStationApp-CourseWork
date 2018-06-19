@@ -31,21 +31,9 @@ namespace BloodTransfusionStationApp.Controllers
         [HttpPost]
         public ActionResult Login(DataOfUser model, string returnUrl)
         {
-            UsersModel db = new UsersModel();
-            DataOfUser dataItem;
-
-            try
+            if (FormsAuthentication.Authenticate(model.Login, model.Password))
             {
-                dataItem = db.DataOfUsers.Where(x => x.Login == model.Login && x.Password == model.Password).First();
-            }
-            catch (InvalidOperationException)
-            {
-                dataItem = null;
-            }
-
-            if (dataItem != null)
-            {
-                FormsAuthentication.SetAuthCookie(dataItem.Login, false);
+                FormsAuthentication.RedirectFromLoginPage(model.Login, true);
                 if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                          && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                 {
