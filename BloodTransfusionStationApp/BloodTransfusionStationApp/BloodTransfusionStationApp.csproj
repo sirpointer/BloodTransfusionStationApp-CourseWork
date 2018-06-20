@@ -197,6 +197,7 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>BloodTransfusionStationModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\Врачи.cs">
       <DependentUpon>BloodTransfusionStationModel.tt</DependentUpon>
     </Compile>
@@ -227,6 +228,10 @@
     <Content Include="App_Data\BloodTransfusionStationDB.mdf" />
     <Content Include="App_Data\BloodTransfusionStationDB_log.ldf">
       <DependentUpon>BloodTransfusionStationDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Users.mdf" />
+    <Content Include="App_Data\Users_log.ldf">
+      <DependentUpon>Users.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

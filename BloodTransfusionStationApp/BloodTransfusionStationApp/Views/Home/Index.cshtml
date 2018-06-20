@@ -5,9 +5,6 @@
 }
 
 <div class="row">
-    @if (User.Identity.IsAuthenticated)
-    {
-        <h1>Lобро пожаловать @(User.Identity.IsAuthenticated ? HttpContext.Current.User.Identity.Name : "Гость")</h1>
+        <h1>Lобро пожаловать @(Response.Cookies["Login"] != null ? Response.Cookies["Login"].Value : "Гость")</h1>
         <a href="@Url.Action("SignOut","Home")">Logout</a>
-    }
 </div>

@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    [Authorize]
     public class Прием_кровиController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
@@ -18,6 +15,8 @@ namespace BloodTransfusionStationApp.Controllers
         // GET: Прием_крови
         public ActionResult Index(string date)
         {
+            if (Request.Cookies["Login"] == null)
+                return RedirectToAction("Login", "Home");
 
             if (!string.IsNullOrWhiteSpace(date))
             {

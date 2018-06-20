@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    [Authorize]
     public class Поставки_в_больницыController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
@@ -18,6 +15,9 @@ namespace BloodTransfusionStationApp.Controllers
         // GET: Поставки_в_больницы
         public ActionResult Index(string searchString)
         {
+            if (Request.Cookies["Login"] == null)
+                return RedirectToAction("Login", "Home");
+
             var поставки_в_больницы = db.Поставки_в_больницы.Include(п => п.Хранилища_крови);
 
             if (!string.IsNullOrWhiteSpace(searchString))

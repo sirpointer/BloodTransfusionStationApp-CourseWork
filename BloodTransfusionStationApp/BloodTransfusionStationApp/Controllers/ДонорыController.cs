@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    [Authorize]
     public class ДонорыController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
@@ -18,6 +15,9 @@ namespace BloodTransfusionStationApp.Controllers
         // GET: Доноры
         public ActionResult Index(string searchString)
         {
+            if (Request.Cookies["Login"] == null)
+                return RedirectToAction("Login", "Home");
+
             if (!String.IsNullOrWhiteSpace(searchString))
             {
                 var elem = db.Доноры.AsQueryable();

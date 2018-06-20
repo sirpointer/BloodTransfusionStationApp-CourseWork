@@ -1,26 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using BloodTransfusionStationApp.Models;
-using Microsoft.AspNet;
 
 namespace BloodTransfusionStationApp.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize]
         public ActionResult Index()
         {
-            return View();
+            if (Request.Cookies["Login"] != null)
+                return View();
+            else
+                return RedirectToAction("Login", "Home");
         }
-
-        [Authorize]
+        
         public ActionResult Tables()
         {
-            return View();
+            if (Request.Cookies["Login"] != null)
+                return View();
+            else
+                return RedirectToAction("Login", "Home");
         }
 
         public ActionResult Login()
@@ -29,20 +30,24 @@ namespace BloodTransfusionStationApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(DataOfUser model, string returnUrl)
+        public ActionResult Login(DataOfUser model)
         {
-            if (FormsAuthentication.Authenticate(model.Login, model.Password))
+            var db = new UserModel();
+            DataOfUser log;
+            try
             {
-                FormsAuthentication.RedirectFromLoginPage(model.Login, true);
-                if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
-                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
-                {
-                    return Redirect(returnUrl);
-                }
-                else
-                {
-                    return RedirectToAction("Index");
-                }
+                log = db.DataOfUser.Where(x => x.Login == model.Login && x.Password == model.Password).First();
+            }
+            catch (InvalidOperationException)
+            {
+                log = null;
+            }
+
+            if (log != null)
+            {
+                Response.SetCookie(new HttpCookie("Login", model.Login));
+
+                return RedirectToAction("Index");
             }
             else
             {
@@ -50,11 +55,10 @@ namespace BloodTransfusionStationApp.Controllers
                 return View();
             }
         }
-
-        [Authorize]
+        
         public ActionResult SignOut()
         {
-            FormsAuthentication.SignOut();
+            Response.Cookies["Login"].Expires = DateTime.Now.AddDays(-1);
             return RedirectToAction("Login", "Home");
         }
     }

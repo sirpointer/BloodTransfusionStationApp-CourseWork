@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using BloodTransfusionStationApp.Models;
 
 namespace BloodTransfusionStationApp.Controllers
 {
-    [Authorize]
     public class Медицинское_оборудованиеController : Controller
     {
         private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
@@ -18,6 +13,9 @@ namespace BloodTransfusionStationApp.Controllers
         // GET: Медицинское_оборудование
         public ActionResult Index()
         {
+            if (Request.Cookies["Login"] == null)
+                return RedirectToAction("Login", "Home");
+
             var медицинское_оборудование = db.Медицинское_оборудование.Include(м => м.Врачи);
             return View(медицинское_оборудование.ToList());
         }
