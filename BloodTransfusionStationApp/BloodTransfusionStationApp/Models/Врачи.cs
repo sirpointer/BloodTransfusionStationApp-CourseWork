@@ -11,7 +11,8 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Врачи
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,11 +23,28 @@ namespace BloodTransfusionStationApp.Models
         }
     
         public int Id { get; set; }
+
+        [StringLength(50, MinimumLength = 3)]
+        [Required]
         public string Имя { get; set; }
+        
+        [StringLength(50, MinimumLength = 3)]
+        [Required]
         public string Фамилия { get; set; }
+
+        [StringLength(50)]
+        [Required]
         public string Отчество { get; set; }
+
+        [StringLength(100, MinimumLength = 4)]
+        [Required]
         public string Должность { get; set; }
+        
+        [Range(1, 1_000_000)]
+        [DataType(DataType.Currency)]
         public decimal Ставка { get; set; }
+
+        [Range(0, 100)]
         public int Стаж { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

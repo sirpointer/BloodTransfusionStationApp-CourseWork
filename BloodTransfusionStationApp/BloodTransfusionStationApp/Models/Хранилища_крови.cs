@@ -11,7 +11,8 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Хранилища_крови
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,7 +24,14 @@ namespace BloodTransfusionStationApp.Models
         }
     
         public int Номер_хранилища { get; set; }
+
+        [Required]
+        [Display(Name = "Группа крови")]
+        [RegularExpression(@"(0|AB|[A-B])", ErrorMessage = "0, A, B или AB")]
         public string Группа_крови { get; set; }
+
+        [Display(Name = "Расположение (номер кабинета)")]
+        [Range(1, int.MaxValue)]
         public int Расположение__номер_кабинета_ { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

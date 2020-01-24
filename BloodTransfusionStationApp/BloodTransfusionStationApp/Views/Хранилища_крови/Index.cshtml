@@ -7,7 +7,7 @@
 
 <h2>Хранилища крови</h2>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую запись", "Create")
     </p>
     <table class="table">
         <tr>
@@ -30,9 +30,9 @@
                     @Html.DisplayFor(modelItem => item.Расположение__номер_кабинета_)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_хранилища }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Номер_хранилища }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_хранилища })
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.Номер_хранилища }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.Номер_хранилища }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Номер_хранилища })
                 </td>
             </tr>
         }

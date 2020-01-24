@@ -7,7 +7,7 @@
 
 <h2>Расширенная информация о приемах</h2>
 
-<br/>
+<br />
 <table class="table">
     <tr>
         <th>
@@ -33,30 +33,42 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Имя)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Фамилия)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Вид_донорства)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Группа_крови)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Объем)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Дата_приема)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Фамилия_врача)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Имя)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Фамилия)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Вид_донорства)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Группа_крови)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Объем)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Дата_приема)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Фамилия_врача)
+            </td>
+        </tr>
+    }
 
 </table>
+<div>
+    <br />
+    @using (Html.BeginForm("GetResultTable", "FullIntakeInfo", FormMethod.Get))
+    {
+        <p>
+            <input type="submit" value="Скачать" class="btn btn-default" />
+        </p>
+    }
+    @ViewBag.Error
+</div>
+<br />

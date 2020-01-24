@@ -11,10 +11,24 @@ namespace BloodTransfusionStationApp.Controllers
         // GET: FullDonorInfo
         public ActionResult Index()
         {
-            if (Request.Cookies["Login"] != null)
-                return View(db.FullTakingBloodInf().ToList());
+            return Request.Cookies["Login"] != null ? View(db.FullTakingBloodInf().ToList()) : (ActionResult)RedirectToAction("Login", "Home");
+        }
+
+        public FileResult GetResultTable()
+        {
+            if (Request.Cookies["Login"] == null)
+            {
+                return null;
+            }
             else
-                return RedirectToAction("Login", "Home");
+            {
+                byte[] data = PrintedForm.FullTakingBloodExls();
+                var response = new FileContentResult(data, "application/octet-stream")
+                {
+                    FileDownloadName = "Расширенная информация о донорах.xlsx"
+                };
+                return response;
+            }
         }
     }
 }

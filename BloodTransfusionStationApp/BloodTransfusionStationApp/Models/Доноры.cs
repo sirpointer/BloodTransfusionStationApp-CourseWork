@@ -11,7 +11,8 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Доноры
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,14 +22,42 @@ namespace BloodTransfusionStationApp.Models
         }
     
         public int Номер_донора { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string Имя { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string Фамилия { get; set; }
+
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string Отчество { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "Дата рождения")]
         public Nullable<System.DateTime> Дата_рождения { get; set; }
+
+        [Required]
         public Nullable<bool> Пол { get; set; }
+
+        [Required]
+        [StringLength(2, MinimumLength = 1)]
+        [RegularExpression(@"(0|AB|[A-B])", ErrorMessage = "0, A, B или AB")]
+        [Display(Name = "Группа крови")]
         public string Группа_крови { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [Required]
         public string Телефон { get; set; }
+
+        [Required]
         public string Адрес { get; set; }
+
+        [Required]
+        [Display(Name = "Паспортные данные")]
         public string Паспортные_данные { get; set; }
     
         public virtual Информация_о_доноре Информация_о_доноре { get; set; }

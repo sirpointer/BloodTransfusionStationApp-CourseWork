@@ -11,12 +11,20 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Отделы_хранилищ
     {
         public int Id { get; set; }
+
+        [Range(1, 10_000)]
         public int Хранилище { get; set; }
+
+        [Required]
+        [Display(Name = "Тип крови")]
         public string Тип_крови { get; set; }
+
+        [Range(0, 10_000)]
         public float Объем { get; set; }
     
         public virtual Хранилища_крови Хранилища_крови { get; set; }

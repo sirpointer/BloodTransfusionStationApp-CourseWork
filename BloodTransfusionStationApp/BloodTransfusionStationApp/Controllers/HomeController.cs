@@ -59,6 +59,7 @@ namespace BloodTransfusionStationApp.Controllers
         public ActionResult SignOut()
         {
             Response.Cookies["Login"].Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Remove("Login");
             return RedirectToAction("Login", "Home");
         }
     }

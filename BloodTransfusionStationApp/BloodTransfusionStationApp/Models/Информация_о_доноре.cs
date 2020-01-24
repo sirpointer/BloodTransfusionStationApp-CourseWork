@@ -11,16 +11,35 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Информация_о_доноре
     {
         public int Номер_донора { get; set; }
+
+        [Required]
+        [Display(Name = "Количество сдач цельной крови за последний год")]
+        [Range(0, 10)]
         public Nullable<int> Количество_сдач_цельной_крови_за_последний_год { get; set; }
+
+        [Display(Name = "Последняя дата сдачи имунной плазмы")]
         public Nullable<System.DateTime> Последняя_дата_сдачи_имунной_плазмы { get; set; }
+
+        [Display(Name = "Последий тромбоцитаферез")]
         public Nullable<System.DateTime> Последий_тромбоцитаферез { get; set; }
+
+        [Display(Name = "Последний плазмаферез")]
         public Nullable<System.DateTime> Последний_плазмаферез { get; set; }
+
+        [Display(Name = "Последний эритроцитаферез")]
         public Nullable<System.DateTime> Последний_эритроцитаферез { get; set; }
+
+        [Required]
+        [Display(Name = "Пройдено медицинское обследование")]
         public bool Пройдено_медицинское_обследование { get; set; }
+
+        [Required]
+        [Display(Name = "Окончание действия мед обследования")]
         public System.DateTime Окончание_действия_мед__обследования { get; set; }
     
         public virtual Доноры Доноры { get; set; }

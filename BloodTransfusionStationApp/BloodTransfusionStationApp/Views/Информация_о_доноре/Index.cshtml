@@ -9,7 +9,7 @@
 
     <br />
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую", "Create")
     </p>
     <table class="table">
         <tr>
@@ -68,9 +68,9 @@
                     @Html.DisplayFor(modelItem => item.Доноры.Фамилия)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_донора }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Номер_донора }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_донора })
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.Номер_донора }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.Номер_донора }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Номер_донора })
                 </td>
             </tr>
         }

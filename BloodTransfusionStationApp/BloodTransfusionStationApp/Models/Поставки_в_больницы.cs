@@ -11,18 +11,42 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Поставки_в_больницы
     {
         public int Id { get; set; }
+
+        [Required]
         public string Название { get; set; }
+
+        [Required]
         public string Адрес { get; set; }
+
+        [Range(0, 100000)]
+        [Display(Name = "Объем поставки цельной крови")]
         public int Объем_поставки_цельной_крови { get; set; }
+
+        [Range(0, 100000)]
+        [Display(Name = "Объем поставки плазмы крови")]
         public int Объем_поставки_плазмы_крови { get; set; }
+
+        [Range(0, 100000)]
+        [Display(Name = "Объем поставки имунной плазмы")]
         public int Объем_поставки_имунной_плазмы { get; set; }
+
+        [Range(0, 100000)]
+        [Display(Name = "Объем поставки эретроцитов крови")]
         public int Объем_поставки_эретроцитов_крови { get; set; }
+
+        [Range(0, 100000)]
+        [Display(Name = "Объем поставки тромбоцитного концентрата")]
         public int Объем_поставки_тромбоцитного_концентрата { get; set; }
+
+        [Range(0, 100000)]
         public int Хранилище { get; set; }
+
+        [Display(Name = "Дата поставки")]
         public System.DateTime Дата_поставки { get; set; }
     
         public virtual Хранилища_крови Хранилища_крови { get; set; }

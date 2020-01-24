@@ -11,7 +11,8 @@ namespace BloodTransfusionStationApp.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Медицинское_оборудование
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,10 +22,23 @@ namespace BloodTransfusionStationApp.Models
         }
     
         public int Номер_оборудования { get; set; }
+
+        [Required]
         public string Наименование { get; set; }
+
+        [Display(Name = "Дата начала эксплуатации")]
+        [Required]
         public Nullable<System.DateTime> Дата_начала_эксплуатации { get; set; }
+
+        [Display(Name = "Срок окончания эксплуатации")]
+        [Required]
         public Nullable<System.DateTime> Срок_окончания_эксплуатации { get; set; }
+
+        [Range(0, 1_000)]
+        [Display(Name = "Расположение номер кабинета")]
         public Nullable<int> Расположение__номер_кабинета_ { get; set; }
+
+        [Display(Name = "Номер ответственного сотрудника")]
         public int Номер_ответственного_сотрудника { get; set; }
     
         public virtual Врачи Врачи { get; set; }

@@ -8,7 +8,7 @@
 <h2>Приемы крови</h2>
     <div>
         <br />
-        @using (Html.BeginForm("Index", "Прием_крови", FormMethod.Get))
+        @using (Html.BeginForm("Index", "Прием крови", FormMethod.Get))
         {
             <p>
                 Введите дату сдачи крови: @Html.TextBox("date")
@@ -19,7 +19,7 @@
     </div>
     <br />
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую", "Create")
     </p>
     <table class="table">
         <tr>
@@ -72,9 +72,9 @@
                     @Html.DisplayFor(modelItem => item.Хранилища_крови.Группа_крови, "Группа крови")
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_посещения }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Номер_посещения }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_посещения })
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.Номер_посещения }) |
+                    @Html.ActionLink("Детально", "Details", new { id = item.Номер_посещения }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Номер_посещения })
                 </td>
             </tr>
         }

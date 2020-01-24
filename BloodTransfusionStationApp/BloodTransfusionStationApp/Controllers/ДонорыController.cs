@@ -10,7 +10,7 @@ namespace BloodTransfusionStationApp.Controllers
 {
     public class ДонорыController : Controller
     {
-        private BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
+        private readonly BloodTransfusionStationDBEntities db = new BloodTransfusionStationDBEntities();
 
         // GET: Доноры
         public ActionResult Index(string searchString)
@@ -18,7 +18,7 @@ namespace BloodTransfusionStationApp.Controllers
             if (Request.Cookies["Login"] == null)
                 return RedirectToAction("Login", "Home");
 
-            if (!String.IsNullOrWhiteSpace(searchString))
+            if (!string.IsNullOrWhiteSpace(searchString))
             {
                 var elem = db.Доноры.AsQueryable();
                 elem = db.Доноры.Where(d => d.Группа_крови.Trim().Equals(searchString.Trim(), StringComparison.OrdinalIgnoreCase));

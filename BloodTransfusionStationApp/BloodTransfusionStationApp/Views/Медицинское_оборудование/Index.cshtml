@@ -8,7 +8,7 @@
 <h2>Медицинское оборудование</h2>
     <br />
     <p>
-        @Html.ActionLink("Create New", "Create")
+        @Html.ActionLink("Создать новую", "Create")
     </p>
     <table class="table">
         <tr>
@@ -49,9 +49,9 @@
                     @Html.DisplayFor(modelItem => item.Врачи.Фамилия)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Номер_оборудования }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Номер_оборудования }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Номер_оборудования })
+                    @Html.ActionLink("Изменить", "Edit", new { id = item.Номер_оборудования }) |
+                    @Html.ActionLink("Подробнее", "Details", new { id = item.Номер_оборудования }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.Номер_оборудования })
                 </td>
             </tr>
         }
